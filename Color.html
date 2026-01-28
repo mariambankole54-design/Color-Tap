@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Catch - Web Dev Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎯 COLOR CATCH</h1>
+        
+        <div class="game-info">
+            <div class="info-box">
+                <div>SCORE</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+            <div class="info-box">
+                <div>LIVES</div>
+                <div class="info-value" id="lives">3</div>
+            </div>
+            <div class="info-box">
+                <div>LEVEL</div>
+                <div class="info-value" id="level">1</div>
+            </div>
+        </div>
+
+        <div class="game-area" id="gameArea">
+            <div class="danger-line" id="dangerLine"></div>
+            <div id="player"></div>
+            <!-- Color drops will be added here by JavaScript -->
+        </div>
+
+        <div class="controls">
+            <button id="startBtn">START GAME</button>
+            <button id="restartBtn" disabled>RESTART</button>
+        </div>
+
+        <div class="controls-info">
+            Use ← → ARROW KEYS to move | Catch colors before red line!
+        </div>
+
+        <div class="instructions">
+            <p><strong>HOW TO PLAY:</strong> Move the blue bar at the bottom with arrow keys. Catch colored squares before they pass the red line. Each catch = 10 points. Miss 3 colors and game over!</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

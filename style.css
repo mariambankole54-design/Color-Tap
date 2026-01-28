@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 10px 0;
+    color: #4cc9f0;
+    text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+    font-size: 2.5rem;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(76, 201, 240, 0.3);
+}
+
+.info-box {
+    padding: 10px 20px;
+    min-width: 100px;
+}
+
+.info-box div:first-child {
+    font-size: 14px;
+    color: #a0a0ff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4cc9f0;
+    text-shadow: 0 0 10px rgba(76, 201, 240, 0.7);
+}
+
+.game-area {
+    flex: 1;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border: 3px solid #4cc9f0;
+    border-radius: 15px;
+    margin: 10px 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#player {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: linear-gradient(to right, #4cc9f0, #4361ee);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.8);
+    transition: left 0.1s;
+    z-index: 10;
+}
+
+.color-drop {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    transition: transform 0.1s;
+    z-index: 5;
+}
+
+.color-drop:hover {
+    transform: scale(1.1);
+}
+
+.danger-line {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, red, transparent);
+    opacity: 0.7;
+    top: 75%;
+    border-top: 3px dashed rgba(255, 255, 255, 0.8);
+    z-index: 1;
+}
+
+.danger-line::before {
+    content: "TOO LATE!";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.controls {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.6);
+    background: linear-gradient(to right, #3a0ca3, #4361ee);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    background: linear-gradient(to right, #666, #777);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.controls-info {
+    margin: 15px 0;
+    color: #a0a0ff;
+    font-size: 16px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+}
+
+.instructions {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+}
+
+.instructions strong {
+    color: #4cc9f0;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin: 5px 0;
+    }
+    
+    .game-info {
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    .info-box {
+        padding: 5px 10px;
+        min-width: 80px;
+    }
+    
+    .info-value {
+        font-size: 22px;
+    }
+    
+    #player {
+        width: 90px;
+        height: 20px;
+        bottom: 15px;
+    }
+    
+    .color-drop {
+        width: 35px;
+        height: 35px;
+    }
+    
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+        min-width: 130px;
+    }
+    
+    .controls {
+        gap: 10px;
+    }
+    
+    .controls-info {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    .instructions {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 700px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin: 5px 0;
+    }
+    
+    .game-info {
+        margin: 10px 0;
+        padding: 10px;
+    }
+    
+    .controls {
+        margin: 15px 0;
+    }
+}
